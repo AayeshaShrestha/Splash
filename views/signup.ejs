@@ -23,13 +23,15 @@
     <div class="head">
       <h2>Create new account.</h2>
     </div>
-    <input type="text" name="username" placeholder="Username.."  /><br />
-    <input type="password" name="password" placeholder="Password.." /><br />
-    <input type="password" name="repassword" placeholder="Repeat Password.." /><br />
-    <a href="myProfile.html"><button class="btn">
-      Sign Up!!
-    </button></a>
-    <p><a href="/login">Already have an account?</a></p><br><br>
+    <form action="/createUser" method="post">
+      <input type="text" name="username" placeholder="Username.."  /><br />
+      <input type="password" name="password" placeholder="Password.." /><br />
+      <input type="password" name="repassword" placeholder="Repeat Password.." /><br />
+      <button class="btn" type="submit">
+        Sign Up!!
+      </button></a>
+      <p><a href="/login">Already have an account?</a></p><br><br>
+    </form>
   </div>
 
 <a href="/"><button style="position:fixed;width:32px;border-radius:40%; outline:0;height:42px;bottom:20px;right:20px;" name="button">
