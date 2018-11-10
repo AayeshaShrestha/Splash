@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/splash')
+mongoose.connect('mongodb://localhost/splashApp')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

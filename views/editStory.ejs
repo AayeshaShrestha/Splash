@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <title>Splash</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
-<link href="stylesheets/style.css" rel="stylesheet">
-<link href="stylesheets/default.css" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/bootstrap-responsive.css">
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/default.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body  style="background:	#C8C8C8;">
@@ -22,7 +23,7 @@
 				<!-- navigation -->
 				<nav class="pull-right nav-collapse collapse nav team">
 				<ul id="menu-main" class="nav">
-					<li><a title="team" >Welcome <%= user.username %> !!</a></li>
+					<li><a title="team" >Welcome!!</a></li>
 				</ul>
 				</nav>
 			</div>
@@ -33,34 +34,38 @@
 
   <div class="container">
     <div class="row">
-      <div class="span3 home-post"><br>
+      <div class="col-xs-4">
+      </div>
+      <!-- <div class="span3 home-post"><br>
         <ul class="widget widget-menu unstyled" style="margin-left:20px;">
-                  <li><a href="/profile/<%= user._id %>"><i class="menu-icon icon-paste"></i>&nbsp New Post </a></li><br>
-                  <li><a href="/myStories/<%= user.username %>"><i class="menu-icon icon-table"></i> &nbsp All Posts </a></li>
-          </ul><!--/.widget-nav-->
-      </div><!--/.span3-->
+                  <li><a href=""><i class="menu-icon icon-paste"></i>&nbsp New Post </a></li><br>
+                  <li><a href=""><i class="menu-icon icon-table"></i> &nbsp All Posts </a></li>
+          </ul>
+      </div> -->
 
       <div class="span9 home-post">
         <div class="content">
 
           <div class="module">
-            <div class="module-head"><br>
-              <h3 style="text-align: center;">Add new post.</h3><hr>
+            <div class="module-head"><br><br>
+              <h3 style="text-align: center;">Edit Your Story.</h3><hr>
             </div>
 
             <div class="module-body">
-                <form class="form-horizontal row-fluid" method="post" action="/newPost">
-									<input type="hidden" name="author" value="<%= user.username %>">
+                <form class="form-horizontal row-fluid" method="post" action="/saveEdited">
+									<input type="hidden" name="_id" value="<%= story._id %>">
 									<div class="control-group">
                     <label class="control-label" for="basicinput">Title</label>
                     <div class="controls">
-                      <input type="text" id="basicinput" name="title" id="title" class="span8">
+                      <input type="text" id="basicinput" value="<%= story.title %>" name="title" id="title" class="span8">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" for="basicinput">Full Story</label>
                     <div class="controls">
-                      <textarea class="span8" name="story" id="story" rows="5"></textarea>
+                      <textarea class="span8" name="story" id="story" rows="5">
+                        <%= story.story %>
+                      </textarea>
                     </div>
                   </div>
 
@@ -73,7 +78,7 @@
 
                   <div class="control-group">
                     <div class="controls">
-                      <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                      <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
                     </div>
                   </div>
 

@@ -24,7 +24,7 @@
 				<!-- navigation -->
 				<nav class="pull-right nav-collapse collapse nav team">
 				<ul id="menu-main" class="nav">
-					<li><a title="team" >User Name</a></li>
+					<li><a title="team" >Welcome!!</a></li>
 				</ul>
 				</nav>
 			</div>
@@ -35,12 +35,12 @@
 
   <div class="container">
     <div class="row">
-      <div class="span3 home-post"><br>
+      <!-- <div class="span3 home-post"><br>
         <ul class="widget widget-menu unstyled" style="margin-left:20px;">
-                  <li><a href="/profile"><i class="menu-icon icon-paste"></i>&nbsp New Post </a></li><br>
-                  <li><a href="/myStories"><i class="menu-icon icon-table"></i> &nbsp All Posts </a></li>
-          </ul><!--/.widget-nav-->
-      </div><!--/.span3-->
+                  <li><a href=""><i class="menu-icon icon-paste"></i>&nbsp New Post </a></li><br>
+                  <li><a href=""><i class="menu-icon icon-table"></i> &nbsp All Posts </a></li>
+          </ul>
+      </div> -->
 
       <div class="span9 home-post">
         <div class="content">
@@ -53,25 +53,27 @@
 
               <table class="table table-striped">
                 <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Picture 1</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Aayesha</td>
-                  <td>Shrestha</td>
-                  <td>no picture</td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                    <a href="#" class="btn btn-danger btn-xs">Delete</a>
-                  </td>
-                </tr>
+	                <tr>
+	                  <th>#</th>
+	                  <th>Title</th>
+	                  <th>Description</th>
+	                  <th>Picture 1</th>
+	                  <th></th>
+	                </tr>
+	              </thead>
+	              <tbody>
+									<% authorStories.forEach(function(aStory,i){ %>
+		                <tr>
+		                  <td><%= ++i %></td>
+		                  <td><%= aStory.title %></td>
+		                  <td><%= aStory.story %></td>
+		                  <td>no picture</td>
+		                  <td>
+		                    <a href="/editStory/<%= aStory._id %>" class="btn btn-primary btn-xs">Edit</a>
+		                    <a href="/deleteStory/<%= aStory._id %>" class="btn btn-danger btn-xs">Delete</a>
+		                  </td>
+		                </tr>
+									<% }) %>
                 </tbody>
               </table>
             </div>
